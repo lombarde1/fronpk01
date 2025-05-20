@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useDepositForm } from '../../../hooks/useDepositform';
+import { useDepositForm } from '../../../hooks/useDepositForm';
 
 // Importar componentes
 import MethodSelection from './MethodSelection';
