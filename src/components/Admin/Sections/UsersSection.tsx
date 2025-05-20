@@ -4,7 +4,7 @@ import { User, UserFormData } from '../types';
 import UserModal from '../Modals/UserModal';
 import api from '../../../lib/api';
 import toast from 'react-hot-toast';
-import LoadingSpinner from '../UI/loadingspinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const UsersSection = () => {
   const [users, setUsers] = useState<User[]>([]);

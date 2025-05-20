@@ -4,7 +4,7 @@ import { PixCredential, PixFormData } from '../types';
 import PixModal from '../Modals/PixModal';
 import api from '../../../lib/api';
 import toast from 'react-hot-toast';
-import LoadingSpinner from '../UI/loadingspinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const PixCredentialsSection = () => {
   const [pixCredentials, setPixCredentials] = useState<PixCredential[]>([]);

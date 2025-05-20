@@ -4,7 +4,7 @@ import { Game, GameFormData } from '../types';
 import GameModal from '../Modals/GameModal';
 import api from '../../../lib/api';
 import toast from 'react-hot-toast';
-import LoadingSpinner from '../UI/loadingspinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const GamesSection = () => {
   const [games, setGames] = useState<Game[]>([]);
