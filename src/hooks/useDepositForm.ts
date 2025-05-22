@@ -94,8 +94,8 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
   const handleGeneratePix = async () => {
     if (isGeneratingPix) return;
     
-    if (depositAmount < 2) {
-      toast.error('O valor mínimo para depósito é R$ 10,00');
+    if (depositAmount < 25) {
+      toast.error('O valor mínimo para depósito é R$ 25,00');
       return;
     }
     

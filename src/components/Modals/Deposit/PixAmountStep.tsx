@@ -86,19 +86,19 @@ const PixAmountStep: React.FC<PixAmountStepProps> = ({
           </div>
           <input
             type="number"
-            min="2"
+            min="25"
             max="10000"
             value={depositAmount}
             onChange={(e) => setDepositAmount(Number(e.target.value))}
             className="w-full bg-slate-800 border border-slate-700/50 focus:border-amber-500/50 rounded-xl py-3.5 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/30 transition-all duration-300"
           />
         </div>
-        <p className="text-xs text-slate-500 mt-2 ml-1">Valor mínimo: R$ 2,00</p>
+        <p className="text-xs text-slate-500 mt-2 ml-1">Valor mínimo: R$ 25,00</p>
       </motion.div>
       
       <motion.button 
         onClick={onGeneratePix}
-        disabled={isGeneratingPix || depositAmount < 2}
+        disabled={isGeneratingPix || depositAmount < 25}
         className="w-full bg-gradient-to-r from-green-500 to-green-400 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-green-500/25 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300"
         variants={itemVariants}
         whileHover={{ scale: 1.03, y: -2 }}

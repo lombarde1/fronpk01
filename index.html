@@ -6,34 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/TDSkw7xY/logo.png" />
   
   <!-- Bloqueio de DevTools (F12, Ctrl+Shift+I etc) -->
-  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-  <script>
-    // Redireciona usuários de desktop
-    if (
-      !/iPhone|iPod|iPad|Android|BlackBerry|IEMobile/i.test(navigator.userAgent) &&
-      window.innerWidth > 768
-    ) {
-      window.location.href = 'https://google.com';
-    }
 
-    // Bloqueia clique direito
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-      alert("Função desativada!");
-    });
-
-    // Bloqueia Ctrl+U e outras combinações
-    document.onkeydown = function (e) {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
-        (e.ctrlKey && e.key === "U")
-      ) {
-        alert("Acesso não permitido!");
-        return false;
-      }
-    };
-  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peakbet</title>
   </head>
