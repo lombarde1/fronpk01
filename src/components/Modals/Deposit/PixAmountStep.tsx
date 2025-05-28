@@ -15,7 +15,7 @@ const PixAmountStep: React.FC<PixAmountStepProps> = ({
   isGeneratingPix,
   onGeneratePix
 }) => {
-  const predefinedAmounts = [20, 50, 100, 200, 500, 1000];
+  const predefinedAmounts = [25, 50, 100, 200, 500, 1000];
 
   // Animações
   const containerVariants = {
