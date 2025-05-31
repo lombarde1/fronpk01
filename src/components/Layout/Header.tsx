@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
           >
-            Nosso grupo Oficial
+            Nosso grupo Oficial!
           </a>
         </div>
       </div>
