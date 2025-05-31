@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
           >
-            Promoções
+            Nosso grupo Oficial
           </a>
         </div>
       </div>
@@ -231,7 +231,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
             
             {/* Botão de promoções */}
             <a 
-              href="https://t.me/promospeakbett"
+              href="https://t.me/+Ebms_T0M2II2YzZh"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex p-2 text-white rounded-full hover:bg-purple-500 transition-colors items-center gap-1"
