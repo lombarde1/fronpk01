@@ -380,7 +380,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
                     <div className="w-8 h-8 rounded-md bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
                       <Gift size={16} className="text-white" />
                     </div>
-                    <span className="font-medium">Promoções</span>
+                    <span className="font-medium">Nosso Grupo Oficial</span>
                     <span className="ml-auto bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">2</span>
                   </a>
                   <button 
