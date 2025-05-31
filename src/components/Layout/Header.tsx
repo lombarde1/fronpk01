@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
             Suporte
           </a>
           <a 
-            href="https://t.me/promospeakbett" 
+            href="https://t.me/+Ebms_T0M2II2YzZh" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
@@ -372,7 +372,7 @@ const Header: React.FC<HeaderProps> = ({ user, onDepositClick }) => {
                 <p className="text-purple-300 text-xs font-medium uppercase tracking-wider px-2 mb-2">Recursos</p>
                 <div className="space-y-1">
                   <a 
-                    href="https://t.me/promospeakbett"
+                    href="https://t.me/+Ebms_T0M2II2YzZh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-white hover:bg-purple-700 hover:bg-opacity-40 p-2 rounded-lg transition-colors"
