@@ -1,0 +1,126 @@
+/* Estilos para o painel administrativo */
+
+/* Animação fade-in-scale para modais */
+@keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.2s ease-out forwards;
+  }
+  
+  /* Efeito hover para cards de jogos */
+  .game-card {
+    transition: all 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(255, 183, 3, 0.1);
+  }
+  
+  /* Melhorias de acessibilidade para elementos interativos */
+  button:focus, 
+  input:focus, 
+  select:focus {
+    outline: 2px solid rgba(255, 183, 3, 0.5);
+    outline-offset: 2px;
+  }
+  
+  /* Estilização customizada para scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0F1C2E;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #2D3748;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFC107;
+  }
+  
+  /* Efeito de loading pulsante */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  /* Efeitos sutis para os elementos da tabela */
+  tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Status badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .status-active {
+    background-color: rgba(72, 187, 120, 0.2);
+    color: #48bb78;
+  }
+  
+  .status-inactive {
+    background-color: rgba(160, 174, 192, 0.2);
+    color: #a0aec0;
+  }
+  
+  /* Melhorar a visualização de modais em dispositivos móveis */
+  @media (max-width: 640px) {
+    .modal-content {
+      width: 90%;
+      padding: 1rem;
+    }
+  }
+  
+  /* Estilo para tooltips */
+  .tooltip {
+    position: relative;
+  }
+  
+  .tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: #1A2634;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
