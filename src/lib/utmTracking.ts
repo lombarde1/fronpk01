@@ -152,4 +152,45 @@ class UTMTrackingService {
 }
 
 // Instância singleton
-export const utmTrackingService = new UTMTrackingService(); 
+export const utmTrackingService = new UTMTrackingService();
+
+// Função customizada para enviar eventos para UTMify
+export const sendUTMifyEvent = async (eventName: string, eventData: any = {}) => {
+  try {
+    const pixelId = "68410d8f35b494dc5f043550";
+    
+    // Preparar dados do evento
+    const payload = {
+      pixelId: pixelId,
+      event: eventName,
+      eventData: eventData,
+      url: window.location.href,
+      userAgent: navigator.userAgent,
+      timestamp: new Date().toISOString(),
+      // Adicionar UTMs se disponíveis
+      ...utmTrackingService.extractUTMsFromURL()
+    };
+
+    console.log(`Enviando evento ${eventName} para UTMify:`, payload);
+
+    // Enviar via fetch para UTMify
+    const response = await fetch('https://api.utmify.com.br/events/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      console.log(`Evento ${eventName} enviado com sucesso para UTMify!`);
+      return true;
+    } else {
+      console.error(`Erro ao enviar evento ${eventName}:`, response.status);
+      return false;
+    }
+  } catch (error) {
+    console.error(`Erro ao enviar evento ${eventName} para UTMify:`, error);
+    return false;
+  }
+}; 

@@ -3,15 +3,7 @@ import toast from 'react-hot-toast';
 import QRCode from 'qrcode';
 import { generatePixDeposit, processCreditCardDeposit, checkPixStatus } from '../lib/transactions';
 import { useUTMTracking } from './useUTMTracking';
-
-// Declaração de tipos para UTMify
-declare global {
-  interface Window {
-    pixel?: {
-      track: (eventName: string, data?: any) => void;
-    };
-  }
-}
+import { sendUTMifyEvent } from '../lib/utmTracking';
 
 // Define tipos para melhorar a tipagem
 export interface CardFormData {
@@ -141,18 +133,11 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           startStatusCheck(response.external_id);
 
           // Marcar evento no UTMify - PIX Gerado
-          try {
-            if (window.pixel) {
-              window.pixel.track('InitiateCheckout', {
-                value: depositAmount,
-                currency: 'BRL',
-                content_type: 'pix_deposit'
-              });
-              console.log('Evento InitiateCheckout enviado para UTMify');
-            }
-          } catch (utmifyError) {
-            console.error('Erro ao enviar evento para UTMify:', utmifyError);
-          }
+          sendUTMifyEvent('InitiateCheckout', {
+            value: depositAmount,
+            currency: 'BRL',
+            content_type: 'pix_deposit'
+          });
           
           return;
         }
@@ -178,18 +163,11 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           }
 
           // Marcar evento no UTMify - PIX Gerado
-          try {
-            if (window.pixel) {
-              window.pixel.track('InitiateCheckout', {
-                value: depositAmount,
-                currency: 'BRL',
-                content_type: 'pix_deposit'
-              });
-              console.log('Evento InitiateCheckout enviado para UTMify');
-            }
-          } catch (utmifyError) {
-            console.error('Erro ao enviar evento para UTMify:', utmifyError);
-          }
+          sendUTMifyEvent('InitiateCheckout', {
+            value: depositAmount,
+            currency: 'BRL',
+            content_type: 'pix_deposit'
+          });
           
           return;
         }
