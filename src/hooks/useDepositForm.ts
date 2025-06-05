@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 import QRCode from 'qrcode';
 import { generatePixDeposit, processCreditCardDeposit, checkPixStatus } from '../lib/transactions';
 import { useUTMTracking } from './useUTMTracking';
-import { sendUTMifyEvent } from '../lib/utmTracking';
 
 // Define tipos para melhorar a tipagem
 export interface CardFormData {
@@ -132,13 +131,6 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           setDepositStep('pix-qrcode');
           startStatusCheck(response.external_id);
 
-          // Marcar evento no UTMify - PIX Gerado
-          sendUTMifyEvent('AddToCart', {
-            value: depositAmount,
-            currency: 'BRL',
-            content_type: 'pix_deposit'
-          });
-          
           return;
         }
         
@@ -162,13 +154,6 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
             startStatusCheck(response.data.external_id);
           }
 
-          // Marcar evento no UTMify - PIX Gerado
-          sendUTMifyEvent('AddToCart', {
-            value: depositAmount,
-            currency: 'BRL',
-            content_type: 'pix_deposit'
-          });
-          
           return;
         }
       }
@@ -407,9 +392,6 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
       if (isSuccess) {
         toast.success('Depósito realizado com sucesso!');
 
-        // Marcar evento de Purchase no UTMify para cartão
-       
-        
         // Notificar sucesso
         onDepositSuccess();
         
