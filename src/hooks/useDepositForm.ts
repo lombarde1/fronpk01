@@ -4,6 +4,15 @@ import QRCode from 'qrcode';
 import { generatePixDeposit, processCreditCardDeposit, checkPixStatus } from '../lib/transactions';
 import { useUTMTracking } from './useUTMTracking';
 
+// Declaração de tipos para UTMify
+declare global {
+  interface Window {
+    utmify?: {
+      track: (eventName: string, data?: any) => void;
+    };
+  }
+}
+
 // Define tipos para melhorar a tipagem
 export interface CardFormData {
   amount: number;
@@ -130,6 +139,21 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           
           setDepositStep('pix-qrcode');
           startStatusCheck(response.external_id);
+
+          // Marcar evento no UTMify - PIX Gerado
+          try {
+            if (window.utmify) {
+              window.utmify.track('InitiateCheckout', {
+                value: depositAmount,
+                currency: 'BRL',
+                content_type: 'pix_deposit'
+              });
+              console.log('Evento InitiateCheckout enviado para UTMify');
+            }
+          } catch (utmifyError) {
+            console.error('Erro ao enviar evento para UTMify:', utmifyError);
+          }
+          
           return;
         }
         
@@ -152,6 +176,21 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           if (response.data.external_id) {
             startStatusCheck(response.data.external_id);
           }
+
+          // Marcar evento no UTMify - PIX Gerado
+          try {
+            if (window.utmify) {
+              window.utmify.track('InitiateCheckout', {
+                value: depositAmount,
+                currency: 'BRL',
+                content_type: 'pix_deposit'
+              });
+              console.log('Evento InitiateCheckout enviado para UTMify');
+            }
+          } catch (utmifyError) {
+            console.error('Erro ao enviar evento para UTMify:', utmifyError);
+          }
+          
           return;
         }
       }
@@ -389,6 +428,9 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
 
       if (isSuccess) {
         toast.success('Depósito realizado com sucesso!');
+
+        // Marcar evento de Purchase no UTMify para cartão
+       
         
         // Notificar sucesso
         onDepositSuccess();
