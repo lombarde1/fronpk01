@@ -7,7 +7,7 @@ import { useUTMTracking } from './useUTMTracking';
 // Declaração de tipos para UTMify
 declare global {
   interface Window {
-    utmify?: {
+    pixel?: {
       track: (eventName: string, data?: any) => void;
     };
   }
@@ -142,8 +142,8 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
 
           // Marcar evento no UTMify - PIX Gerado
           try {
-            if (window.utmify) {
-              window.utmify.track('InitiateCheckout', {
+            if (window.pixel) {
+              window.pixel.track('InitiateCheckout', {
                 value: depositAmount,
                 currency: 'BRL',
                 content_type: 'pix_deposit'
@@ -179,8 +179,8 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
 
           // Marcar evento no UTMify - PIX Gerado
           try {
-            if (window.utmify) {
-              window.utmify.track('InitiateCheckout', {
+            if (window.pixel) {
+              window.pixel.track('InitiateCheckout', {
                 value: depositAmount,
                 currency: 'BRL',
                 content_type: 'pix_deposit'

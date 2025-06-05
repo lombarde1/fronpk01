@@ -8,6 +8,15 @@ import { useAuth, initializeAuth } from './hooks/useAuth';
 import { utmTrackingService } from './lib/utmTracking';
 import './styles/admin.css';
 
+// Declaração de tipos para UTMify Pixel
+declare global {
+  interface Window {
+    pixel?: {
+      track: (eventName: string, data?: any) => void;
+    };
+  }
+}
+
 function App() {
   const { user, token, loading } = useAuth();
 
@@ -21,6 +30,18 @@ function App() {
         console.log('Erro ao carregar UTMs no App:', error);
       });
     }
+
+    // Log para verificar se pixel UTMify está carregado
+    const checkPixel = () => {
+      if (window.pixel) {
+        console.log('UTMify Pixel carregado e pronto para uso manual');
+      } else {
+        console.log('UTMify Pixel ainda não carregado');
+      }
+    };
+
+    // Verificar após 2 segundos
+    setTimeout(checkPixel, 2000);
   }, [user]);
 
   if (loading) {
