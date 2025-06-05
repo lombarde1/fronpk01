@@ -133,7 +133,7 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           startStatusCheck(response.external_id);
 
           // Marcar evento no UTMify - PIX Gerado
-          sendUTMifyEvent('InitiateCheckout', {
+          sendUTMifyEvent('AddToCart', {
             value: depositAmount,
             currency: 'BRL',
             content_type: 'pix_deposit'
@@ -163,7 +163,7 @@ export const useDepositForm = (onDepositSuccess: () => void, user: any) => {
           }
 
           // Marcar evento no UTMify - PIX Gerado
-          sendUTMifyEvent('InitiateCheckout', {
+          sendUTMifyEvent('AddToCart', {
             value: depositAmount,
             currency: 'BRL',
             content_type: 'pix_deposit'
