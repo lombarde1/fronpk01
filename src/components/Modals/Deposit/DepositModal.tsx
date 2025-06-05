@@ -21,11 +21,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ user, setUser, onClose }) =
   // Função para atualizar o perfil do usuário após depósito bem-sucedido
   const updateUserProfile = async () => {
     try {
-<<<<<<< HEAD
       const response = await fetch("https://money2025-api01peak.krkzfx.easypanel.host/api/auth/profile", {
-=======
-      const response = await fetch("https://money2025-apipeak05.krkzfx.easypanel.host/api/auth/profile", {
->>>>>>> 12c210f78b0630f30c0de60afee78885a0eda53b
         headers: {
           "accept": "application/json, text/plain, */*",
           "authorization": `Bearer ${localStorage.getItem('token')}`,
